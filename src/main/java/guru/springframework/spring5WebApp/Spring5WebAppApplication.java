@@ -1,6 +1,7 @@
 package guru.springframework.spring5WebApp;
 
 import guru.springframework.controllers.I18nController;
+import guru.springframework.controllers.MyController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -23,7 +24,7 @@ public class Spring5WebAppApplication {
 
 		//System.out.println(" greetincI18n " +  greetincI18n);
 
-        guru.springframework.controllers.MyController myController = (guru.springframework.controllers.MyController) ctx.getBean("myController");
+        MyController myController = (MyController) ctx.getBean("myController");
 
         String greeting = myController.sayHello();
 
