@@ -21,7 +21,7 @@ public class Spring5WebAppApplication {
        // I18nController i18nController = (I18nController) ctx.getBean("i18nController");
        // String greetincI18n = i18nController.sayHello();
 
-		System.out.println(" greetincI18n " +  greetincI18n);
+		//System.out.println(" greetincI18n " +  greetincI18n);
 
         guru.springframework.controllers.MyController myController = (guru.springframework.controllers.MyController) ctx.getBean("myController");
 
