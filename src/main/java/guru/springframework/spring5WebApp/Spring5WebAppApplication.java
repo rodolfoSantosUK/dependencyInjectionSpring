@@ -1,5 +1,6 @@
 package guru.springframework.spring5WebApp;
 
+import guru.springframework.controllers.I18nController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -13,25 +14,31 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("guru.springframework.repositories")
 public class Spring5WebAppApplication {
 
-	public static void main(String[] args) {
-		ApplicationContext ctx = SpringApplication.run(Spring5WebAppApplication.class, args);
+    public static void main(String[] args) {
+        ApplicationContext ctx = SpringApplication.run(Spring5WebAppApplication.class, args);
 
-		guru.springframework.controllers.MyController myController = (guru.springframework.controllers.MyController) ctx.getBean("myController");
+       // O código abaixo serve para testar o uso do profile
+       // I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+       // String greetincI18n = i18nController.sayHello();
 
-		String greeting = myController.sayHello();
+		System.out.println(" greetincI18n " +  greetincI18n);
 
-		System.out.println(greeting);
+        guru.springframework.controllers.MyController myController = (guru.springframework.controllers.MyController) ctx.getBean("myController");
 
-		System.out.println("------ Property");
-		guru.springframework.controllers.PropertyInjectedController propertyInjectedController = (guru.springframework.controllers.PropertyInjectedController) ctx.getBean("propertyInjectedController");
-		System.out.println(propertyInjectedController.getGreeting());
+        String greeting = myController.sayHello();
 
-		System.out.println("--------- Setter");
-		guru.springframework.controllers.SetterInjectedController setterInjectedController = (guru.springframework.controllers.SetterInjectedController) ctx.getBean("setterInjectedController");
-		System.out.println(setterInjectedController.getGreeting());
+        System.out.println(greeting);
 
-		System.out.println("-------- Constructor" );
-		guru.springframework.controllers.ConstructorInjectedController constructorInjectedController = (guru.springframework.controllers.ConstructorInjectedController) ctx.getBean("constructorInjectedController");
-		System.out.println(constructorInjectedController.getGreeting());
-	}
+        System.out.println("------ Property");
+        guru.springframework.controllers.PropertyInjectedController propertyInjectedController = (guru.springframework.controllers.PropertyInjectedController) ctx.getBean("propertyInjectedController");
+        System.out.println(propertyInjectedController.getGreeting());
+
+        System.out.println("--------- Setter");
+        guru.springframework.controllers.SetterInjectedController setterInjectedController = (guru.springframework.controllers.SetterInjectedController) ctx.getBean("setterInjectedController");
+        System.out.println(setterInjectedController.getGreeting());
+
+        System.out.println("-------- Constructor");
+        guru.springframework.controllers.ConstructorInjectedController constructorInjectedController = (guru.springframework.controllers.ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+        System.out.println(constructorInjectedController.getGreeting());
+    }
 }
